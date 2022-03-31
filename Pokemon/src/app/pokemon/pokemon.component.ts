@@ -9,7 +9,7 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit {
-  @Input() pokemon : any;
+  @Input() pokemon!: any;
 
   constructor(private pokemonService : PokemonsService,
               public dialog : MatDialog) { }
@@ -17,12 +17,11 @@ export class PokemonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showDialog() {
-    this.dialog.open(DialogComponent,{
+  showDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent,{
       width: '250px',
       data: this.pokemon
     })
   }
-
 
 }

@@ -14,11 +14,11 @@ export class PokemonsService {
 
   constructor(private http : HttpClient) { }
 
-  getPokemon(pokemon : string) {
+  getPokemon(pokemon: string) {
     return this.http.get([this.baseurl, pokemon].join('/')) as Observable<PokemonResponse>;
   }
 
-  getSelect(data:string) {
+  getSelect(data: string) {
     this.subjectSelected$.next(data);
   }
 
