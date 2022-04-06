@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { NotelistComponent } from './notelist/notelist.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

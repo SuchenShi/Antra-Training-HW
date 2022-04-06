@@ -1,0 +1,29 @@
+<div class="main-content">
+
+    <div class="note-titles-container">
+        Notes: <button mat-raised-button color="accent" (click)="createNote()">Add Note</button>
+        <p *ngFor="let note of quicknotes">
+            <mat-card-title> {{ note.title }} </mat-card-title>
+            <!-- <mat-card> {{ i.content }} </mat-card>
+            <mat-card> {{ i.todo }} </mat-card> --> 
+    </div>
+
+    <div class="newnote-container">
+        <mat-form-field> <input matInput
+          [(ngModel)]="titleModel" 
+          placeholder="Title"> </mat-form-field>
+        <br>
+      
+        <mat-form-field> 
+          <input matInput
+          [(ngModel)]="contentModel" 
+          placeholder="Enter your content"> 
+        </mat-form-field>
+
+        <br>
+    
+        <button mat-raised-button color="accent" (click)="createNote()">Add Note</button>
+    </div>
+    
+</div>
+

@@ -1,0 +1,22 @@
+.main-content{
+    display: flex;
+    flex-direction: row;
+    width:90%;
+    height:80%;
+
+}
+
+.note-titles-container{
+    width: 50%;
+    height: 100%;
+    padding: 30px;
+    background-color: rgb(126, 126, 236);
+    
+}
+
+.newnote-container{
+    width: 50%;
+    height: 100%;
+    padding: 30px;
+    background-color: rgb(193, 193, 241);
+}
