@@ -10,11 +10,15 @@ import { FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotelistComponent } from './notelist/notelist.component';
+import { AddNotePanelComponent } from './notelist/add-note-panel/add-note-panel.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotelistComponent
+    NotelistComponent,
+    AddNotePanelComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,8 @@ import { NotelistComponent } from './notelist/notelist.component';
     MatFormFieldModule, 
     MatInputModule, 
     MatCardModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

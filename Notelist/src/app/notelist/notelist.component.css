@@ -1,7 +1,7 @@
 .main-content{
     display: flex;
     flex-direction: row;
-    width:90%;
+    width:100%;
     height:80%;
 
 }
@@ -19,4 +19,13 @@
     height: 100%;
     padding: 30px;
     background-color: rgb(193, 193, 241);
+}
+
+
+.note-display{
+    display:block;
+}
+
+.selected {
+    background-color: #e60026;
 }

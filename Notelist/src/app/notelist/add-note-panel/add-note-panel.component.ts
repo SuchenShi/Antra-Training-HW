@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Quicknotes } from '../interface/quicknotes';
+import { Component, Input, OnInit } from '@angular/core';
+import { Quicknotes } from '../../interface/quicknotes';
 
 @Component({
-  selector: 'app-notelist',
-  templateUrl: './notelist.component.html',
-  styleUrls: ['./notelist.component.css']
+  selector: 'app-add-note-panel',
+  templateUrl: './add-note-panel.component.html',
+  styleUrls: ['./add-note-panel.component.css']
 })
-export class NotelistComponent implements OnInit {
+export class AddNotePanelComponent implements OnInit {
+
+  @Input() noteDetail?: Quicknotes;
 
   titleModel: string;
   contentModel: string;
   quicknotes: Quicknotes[];
 
   classStyle: string;
-
-  noteToShow?: Quicknotes;
 
   constructor() { 
     this.titleModel = '';
@@ -27,11 +27,10 @@ export class NotelistComponent implements OnInit {
      
     };
 
-    this.quicknotes = [defaultQuicknotes,defaultQuicknotes,defaultQuicknotes];
+    this.quicknotes = [defaultQuicknotes];
   }
 
   ngOnInit(): void {
-    this.noteToShow = this.quicknotes[0];
   }
 
   createNote() {
@@ -46,11 +45,5 @@ export class NotelistComponent implements OnInit {
   displayAddNote() {
     this.classStyle = 'note-disply';
   }
-
-  showNoteDetail(selectedNote: Quicknotes) {
-    this.noteToShow = selectedNote;
-  }
-
-  
 
 }

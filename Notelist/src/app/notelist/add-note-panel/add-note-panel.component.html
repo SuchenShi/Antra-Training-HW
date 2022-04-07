@@ -1,0 +1,20 @@
+<div class="newnote-container">
+    <mat-form-field> <input matInput
+      [(ngModel)]="titleModel" 
+      placeholder="Title"> </mat-form-field>
+    <br>
+
+    <p class="note-title" aria-multiselectable="false">{{ "Title: " + noteDetail}}</p> 
+
+  
+    <mat-form-field> 
+      <input matInput
+      [(ngModel)]="contentModel" 
+      placeholder="Enter your content"> 
+    </mat-form-field>
+
+
+    <br>
+
+    <button mat-raised-button color="accent" (click)="createNote()">Add Note</button>
+</div>
