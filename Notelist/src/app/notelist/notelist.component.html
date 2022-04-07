@@ -1,26 +1,26 @@
 <div class="main-content">
-
     <div class="note-titles-container">
-        Notes: <button mat-raised-button color="accent">[+]</button>
-        <ul>
-            <li *ngFor="let note of quicknotes" (click) = "showNoteDetail(note)" >
-                <!-- [noteDetail]="note"
-                [ngStyle]="{
-                'background-color': note.title === FocusId ? 'orange' : 'silver',
-                color: note.title === FocusId ? 'gold' : 'white'
-                }"
-                (userInfoEmiter)="getFocus($event)" -->
-                
+        <div class="titles">
+            <h1>Notes</h1>
+            <h1 (click)="onClickAdd()" style = "cursor: pointer;">[+]</h1>
+        </div>
+        
+        <div *ngFor="let title of titles">
+            <div class="titles">
+                <h3 (click)="onClickTitle(title)" style="cursor: pointer;">{{ title }}</h3>
+                <h3 (click)="onClickDelete(title)" style="cursor: pointer;">X</h3>
+            </div>
 
-                <mat-card-title> {{ note.title }} 
-                    <button class="delete">X</button>
-                </mat-card-title>
-            </li>
-        </ul>    
+        </div>   
     </div>
 
     <div class="newnote-container">
-        <app-add-note-panel [noteDetail]="noteToShow"></app-add-note-panel>
+        <app-add-note-panel
+            (titleExisted) = "getContent($event)"
+            [titleBefore] = "title"
+            [contentBefore] = "content"
+        >
+        </app-add-note-panel>
     </div>
    
 </div>

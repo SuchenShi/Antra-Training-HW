@@ -8,49 +8,36 @@ import { Quicknotes } from '../interface/quicknotes';
 })
 export class NotelistComponent implements OnInit {
 
-  titleModel: string;
-  contentModel: string;
-  quicknotes: Quicknotes[];
+  titles: string[] = [];
+  title: string='';
+  content!: string;
 
-  classStyle: string;
-
-  noteToShow?: Quicknotes;
-
-  constructor() { 
-    this.titleModel = '';
-    this.contentModel = '';
-    this.classStyle = '';
-
-    const defaultQuicknotes: Quicknotes = {
-      title: 'my note',
-      content: 'my contnet',
-     
-    };
-
-    this.quicknotes = [defaultQuicknotes,defaultQuicknotes,defaultQuicknotes];
-  }
+  constructor() {};
 
   ngOnInit(): void {
-    this.noteToShow = this.quicknotes[0];
+    for (let [key, value] of Object.entries(localStorage)){
+      this.titles.push(key);
+    }
   }
 
-  createNote() {
-    const newNote: Quicknotes = {
-      title: this.titleModel,
-      content: this.contentModel,
-    };
-    this.quicknotes.push(newNote);
-    this.titleModel = this.contentModel = '';
+  onClickTitle(key: string) {
+    this.title = key;
+    this.content = localStorage.getItem(key) || '';
+  }
+  onClickDelete(title: string) {
+    localStorage.removeItem(title);
+    this.titles = this.titles.filter((item) => item !== title);
   }
 
-  displayAddNote() {
-    this.classStyle = 'note-disply';
+  onClickAdd() {
+    this.title = '';
+    this.content = '';
+  }
+  getContent(title: string) {
+    if (!this.titles.find((item) => item === title)) {
+      this.titles.push(title);
+    }
   }
 
-  showNoteDetail(selectedNote: Quicknotes) {
-    this.noteToShow = selectedNote;
-  }
-
-  
 
 }

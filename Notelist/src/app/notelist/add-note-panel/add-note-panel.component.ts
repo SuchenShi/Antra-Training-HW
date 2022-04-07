@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Quicknotes } from '../../interface/quicknotes';
+import { Component, Input, Output, OnInit, EventEmitter, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-add-note-panel',
@@ -8,42 +7,48 @@ import { Quicknotes } from '../../interface/quicknotes';
 })
 export class AddNotePanelComponent implements OnInit {
 
-  @Input() noteDetail?: Quicknotes;
+  @Output() titleExisted = new EventEmitter<string>();
 
-  titleModel: string;
-  contentModel: string;
-  quicknotes: Quicknotes[];
+  @Input() titleBefore!: string;
+  @Input() contentBefore!: string;
 
-  classStyle: string;
+  title!: string;
+  content!: string;
 
-  constructor() { 
-    this.titleModel = '';
-    this.contentModel = '';
-    this.classStyle = '';
+  titleChange: string = '';
+  contentChange: string = '';
 
-    const defaultQuicknotes: Quicknotes = {
-      title: 'my note',
-      content: 'my contnet',
-     
-    };
+  lastTitle: string = '';
 
-    this.quicknotes = [defaultQuicknotes];
-  }
+  constructor() { }
 
   ngOnInit(): void {
+    this.title = this.titleBefore;
+    this.content = this.contentBefore;
   }
 
-  createNote() {
-    const newNote: Quicknotes = {
-      title: this.titleModel,
-      content: this.contentModel,
-    };
-    this.quicknotes.push(newNote);
-    this.titleModel = this.contentModel = '';
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['titleBefore']) {
+      this.title = changes['titleBefore'].currentValue;
+    } else {
+      this.title = this.lastTitle;
+    }
+    if (changes['contentBefore'])
+      this.content = changes['contentBefore'].currentValue;
   }
 
-  displayAddNote() {
-    this.classStyle = 'note-disply';
+  onClickSave() {
+    this.titleExisted.emit(this.title);
+    if (!localStorage.getItem(this.title) ||localStorage.getItem(this.title) !== this.content) {
+      localStorage.setItem(`${this.title}`, this.content);
+      this.lastTitle = this.title;
+      this.title = '';
+      this.content = '';
+    }
+  }
+  
+  onClickRevert() {
+    this.content = localStorage.getItem(this.title) || '';
   }
 
 }
