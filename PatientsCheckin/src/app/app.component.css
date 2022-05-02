@@ -7,16 +7,18 @@
   .container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 400px;
     text-align: center;
+    border: 5px solid;
+    border-color: rgb(124, 169, 236);
   }
   
   .header-container {
     padding: 30px 20px 20px 20px;
     border-style: solid;
-    border-color: black;
-    border-width: 1px 1px 0px 1px;
-
+    border-color: blue;
+    border-width: 2px 2px 0px 2px;
     display: inline-block;
     vertical-align: middle;
   }
@@ -28,9 +30,9 @@
   .patienform {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 2px solid blue;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 20px;
     
   }
 
@@ -38,6 +40,12 @@
     height: 60px;
   }
   
+  form input{
+    height: 30px;
+    width: 150px;
+    text-align: center;
+  }
+
   .continueBtn {
     width: 100px;
     height: 30px;
@@ -47,8 +55,9 @@
     border: none;
     transition-duration: 0.4s;
     margin-bottom: 50px;
+    border-radius: 5px;
   }
-  
+
   .continueBtn:hover {
     background-color: #fd5f5c; /* Green */
     color: white;
