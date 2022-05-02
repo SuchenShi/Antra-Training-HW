@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    text-align: center;
+  }
+  
+  .header-container {
+    padding: 30px 20px 20px 20px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 1px 0px 1px;
+
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .header{
+    padding-bottom: 20px;
+  }
+  
+  .patienform {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+    padding-top: 10px;
+    
+  }
+
+  .input-container {
+    height: 60px;
+  }
+  
+  .continueBtn {
+    width: 100px;
+    height: 30px;
+    background-color: red;
+    margin: 10px;
+    color: white;
+    border: none;
+    transition-duration: 0.4s;
+    margin-bottom: 50px;
+  }
+  
+  .continueBtn:hover {
+    background-color: #fd5f5c; /* Green */
+    color: white;
+  }
+  
+  .errormessage {
+    color: red;
+  }
+  
+  .red {
+    color: red;
+  }
+  
