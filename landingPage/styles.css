@@ -39,13 +39,13 @@ main {
 }
 
 #top > h1 {
-    font-size: 80px;
+    font-size: 100px;
     color: #4f4d53;
     margin: 12vw;
 }
 
 
-.img-container {
+.portrait-container {
     margin-top: -100px;
     display: flex;
     justify-content: center;
